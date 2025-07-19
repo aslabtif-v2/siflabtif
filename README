@@ -10,13 +10,13 @@ terhadap informasi laboratorium bagi asisten.
 
 Cara menjalankan aplikasi:
 
-    docker built -t siflabtif:v1.0 .
+    docker build -t siflabtif:v2.0 .
     docker compose up -d
 
 Cara menghentikan aplikasi:
 
     docker compose down
-    docker rmi siflabtif:v1.0
+    docker rmi siflabtif:v2.0
 
 Aplikasi dapat diakses pada alamat:
 
