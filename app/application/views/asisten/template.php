@@ -150,6 +150,9 @@
                                 <li><a href="<?php echo base_url('index.php/asisten_kehadiran') ?>"><img src="<?php echo base_url('image/absen-asisten.png') ?>" class="menu-icon" /> Kehadiran Asisten</a>
                                 <li><a href="<?php echo base_url('index.php/asisten_catatan') ?>"><img src="<?php echo base_url('image/catatan.png') ?>" class="menu-icon" /> Catatan</a>
                                 </li>
+                                <li><a href="<?php echo base_url('index.php/asisten/penilaian_asisten') ?>"><img src="<?php echo base_url('image/catatan.png') ?>" class="menu-icon" /> Penilaian Asisten</a>
+                                <li><a href="<?php echo base_url('index.php/asisten/penilaian_diri') ?>"><img src="<?php echo base_url('image/catatan.png') ?>" class="menu-icon" /> Penilaian Diri</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

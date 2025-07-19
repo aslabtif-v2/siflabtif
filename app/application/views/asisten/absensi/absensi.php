@@ -389,7 +389,32 @@
         <?php } ?>
         </tbody>
     </table>
+    <button type="button" data-toggle="modal" data-target="#ModBerita" rel="tooltip" title="Edit Task" class="btn btn-primary ">Berita Acara
+                                                            </button>
 </div>
+
+<!--modal Berita acara-->
+<div class="modal fade" id="ModBerita" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+    	<div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="mySmallModalLabel">Berita acara</h4>
+        </div><br />
+        <form method="post" action="<?php echo base_url() ?>index.php/asisten_absensi/post_bertaAcara"> 
+        <input type="hidden" name="id_praktikum" value="<?php echo $id_praktikum ?>">
+        <input type="hidden" name="pertemuan" value="<?php echo $pertermuanM ?>">
+        <input type="hidden" name="tanggal" value="<?php echo $tanggal ?>">
+        <textarea  name='isi' placeholder="Isi dengan Detail" class="form-control" style="width: 560px; margin-left: 20px;height: 200px"></textarea>
+      	<br />
+        <div class="modal-footer">
+        	<button class="btn btn-primary" style="float:right;">Simpan</button>
+      	</div>
+      	</form>
+    </div>
+  </div>
+</div>
+
 <!-- Modal Absen-->
 <div class="modal fade" id="myModalAbsen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

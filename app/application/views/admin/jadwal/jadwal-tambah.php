@@ -124,16 +124,34 @@ $(document).ready(function(e) {
                             <option>08.00 - 09.40</option>
                             <option>08.50 - 10.30</option>
                             <option>09.40 - 11.20</option>
+                            <option>09.45 - 11.25</option>
                             <option>10.30 - 12.10</option>
                             <option>11.20 - 13.00</option>
+                            <option>11.30 - 13.10</option>
                             <option>12.10 - 13.50</option>
                             <option>13.00 - 14.40</option>
+                            <option>13.15 - 14.55</option>
+                            <option>13.30 - 14.40</option>
+                            <option>13.30 - 15.10</option>
                             <option>13.50 - 15.30</option>
+                            <option>14.00 - 15.40</option>
+                            <option>14.20 - 16.00</option>
+                            <option>14.25 - 16.05</option>
                             <option>14.40 - 16.20</option>
-                            <option>15.30 - 17.10</option>
+			                      <option>15.00 - 16.40</option>
+			                      <option>15.10 - 16.50</option>
+			                      <option>15.30 - 17.10</option>
+                            <option>15.35 - 17.15</option>
+                            <option>15.40 - 17.20</option>
+                            <option>16.00 - 17.40</option>
                             <option>16.20 - 18.00</option>
-                            <option>17.10 - 18.50</option>
+                            <option>16.30 - 18.10</option>
+                            <option>16.40 - 18.20</option>
+			    <option>17.00 - 18.40</option>
+                            <option>17.20 - 18.05</option>
+                            <option>17.40 - 19.20</option>
                             <option>18.00 - 19.40</option>
+			    <option>18.10 - 19.50</option>
                             <option>18.50 - 20.30</option>
                             <option>19.40 - 21.20</option>
                             <option>20.30 - 22.10</option>

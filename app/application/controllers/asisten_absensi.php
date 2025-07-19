@@ -66,7 +66,20 @@ class asisten_absensi extends CI_Controller {
 			}
 		}
 	}
-	
+	function post_bertaAcara(){
+		$tanggal = $this->input->post('tanggal');
+		$id_praktikum = $this->input->post('id_praktikum');
+		$pertemuan = $this->input->post('pertemuan');
+		$isi = $this->input->post('isi');
+		$data = array(
+						'id_praktikum'=>$id_praktikum,
+						'pertemuan'=>$pertemuan,
+						'tgl'=>$tanggal,
+						'isi'=>$isi
+					);
+				$this->db->insert('berita_acara',$data);
+				echo ("<script>alert('berhasil'); window.location.href =  '".base_url('index.php/asisten_absensi')."'</script>");
+	}
 	function absen_asisten(){
 		$pass = $this->input->post('pass');
 		$id_praktikum = $this->input->post('id_praktikum');

@@ -41,6 +41,20 @@
 $route['default_controller'] = "login";
 $route['404_override'] = '';
 
+$route['mhs/signin'] = 'signin/index';
+$route['mhs/dashboard'] = 'signin/dashboard';
+$route['mhs/signout'] = 'signin/signout';
+$route['mhs/kuisioner'] = 'kuisioner/index';
+
+$route['admin/kuisioner_mahasiswa'] = 'adminkuisioner/mahasiswa';
+$route['admin/kuisioner_asisten'] = 'adminkuisioner/asisten';
+$route['admin/kuisioner_mahasiswa/(:any)'] = 'adminkuisioner/detailPenilaianMahasiswa/$1';
+$route['admin/kuisioner_asisten/(:any)'] = 'adminkuisioner/detailPenilaianAsisten/$1';
+
+$route['asisten/penilaian_asisten'] = 'asistenkuisioner/penilaianAsisten';
+$route['asisten/penilaian_asisten/(:any)'] = 'asistenkuisioner/formPenilaianAsisten/$1';
+$route['asisten/penilaian_diri'] = 'asistenkuisioner/penilaianDiri';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

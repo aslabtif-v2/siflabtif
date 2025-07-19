@@ -50,7 +50,7 @@
 				$where = "where t1.id_ruangan='$id_ruangan'";
 			}
 			$query = "
-				SELECT allo_id, allo_qtty, t1.id_ruangan, ruangan,t4.nama AS asisten, b.*, t3.code_desc kondisi, allo_tanggal FROM inv_alokasi t1
+				SELECT allo_id, allo_qtty, t1.id_ruangan, ruangan,t4.nama AS asisten, B.*, t3.code_desc kondisi, allo_tanggal FROM inv_alokasi t1
 				LEFT JOIN ruangan t2 ON t1.id_ruangan=t2.id_ruangan
 				LEFT JOIN asisten t4 ON t1.id_asisten=t4.id_asisten
 				LEFT JOIN (
@@ -58,7 +58,7 @@
 					LEFT JOIN codexd t2 ON t1.code_merk=t2.code_id
 					LEFT JOIN codexd t3 ON t1.jnis_brng=t3.code_id
 				) B
-				ON t1.brg_id=b.brg_id
+				ON t1.brg_id=B.brg_id
 				LEFT JOIN codexd t3 ON t1.knds_brng=t3.code_id
 				$where
 				ORDER BY allo_id desc
@@ -93,12 +93,12 @@
 					IFNULL(rusak_qtty,0)rusak_qtty, 
 					IFNULL(hilang_qtty,0)hilang_qtty
 				FROM (	
-					SELECT SUM(allo_qtty)baru_qtty, b.*, t3.code_desc kondisi FROM inv_alokasi t1
+					SELECT SUM(allo_qtty)baru_qtty, B.*, t3.code_desc kondisi FROM inv_alokasi t1
 					LEFT JOIN (
 						SELECT t1.brg_id, t2.code_desc merek, t3.code_desc barang FROM inv_barang t1
 						LEFT JOIN codexd t2 ON t1.code_merk=t2.code_id
 						LEFT JOIN codexd t3 ON t1.jnis_brng=t3.code_id
-					) B ON t1.brg_id=b.brg_id
+					) B ON t1.brg_id=B.brg_id
 					LEFT JOIN codexd t3 ON t1.knds_brng=t3.code_id
 					WHERE t3.code_desc='Baru'
 					$date

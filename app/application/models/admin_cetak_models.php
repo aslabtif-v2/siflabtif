@@ -35,5 +35,10 @@
 		function mhs_matkum($id_praktikum){
 			return $this->db->query("SELECT mata_praktikum.mata_praktikum FROM penjadwalan, mata_praktikum WHERE penjadwalan.id_matkum=mata_praktikum.id_matkum AND penjadwalan.id_praktikum='$id_praktikum'")->row();	
 		}
+		function berita_acara($where){
+			$this->db->where($where);
+			$query =  $this->db->get('berita_acara');
+			return $query->result();
+		}
 	}
 ?>

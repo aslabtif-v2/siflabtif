@@ -52,9 +52,9 @@ services:
     #   context: .
     #   dockerfile: Dockerfile
     #   tags:
-    #     - "siflabtif:v1.0"
-    image: siflabtif:v1.0
-    container_name: app.labtif.v1
+    #     - "siflabtif:v2.0"
+    image: siflabtif:v2.0
+    container_name: app.labtif.v2
     networks:
       - labtif.domain
     restart: unless-stopped

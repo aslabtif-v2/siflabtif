@@ -38,11 +38,11 @@
                 <li class="dropdown jumlah-pesan">
                 	<?php
 						$namabulan = array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
-						$jp = $this->db->query("SELECT pesan_balasan.id_pesan, pesan.user_satu, COUNT(pesan_balasan.status) AS jumlah, MAX(pesan_balasan.pesan) AS pesan, max(pesan_balasan.tanggal) as tanggal FROM pesan_balasan, pesan WHERE pesan_balasan.id_pesan=pesan.id_pesan AND pesan.user_dua='".$_SESSION['id_asisten']."' AND pesan_balasan.status='1' GROUP BY pesan.user_satu")->result();
+						$jp = $this->db->query("SELECT pesan_balasan.id_pesan, pesan.user_satu, COUNT(pesan_balasan.status) AS jumlah, MAX(pesan_balasan.pesan) AS pesan, max(pesan_balasan.tanggal) as tanggal FROM pesan_balasan, pesan WHERE pesan_balasan.id_pesan=pesan.id_pesan AND pesan.user_dua='".$_SESSION['id_asisten']."' AND pesan_balasan.status='1' GROUP BY pesan.user_satu")->result_array();
 						$tp = 0;
 						$np = '';
 						foreach($jp as $jps){
-							$tp = $jps->jumlah+$tp;
+							$tp = $jps['jumlah']+$tp;
 						}
 						
 						if($tp!=0){
@@ -56,8 +56,8 @@
 					if($tp!=0){
 						echo '<ul class="dropdown-menu dropdown-messages">';
 						foreach($jp as $jps){
-						$asis = $this->models->where1Row('asisten','id_asisten',$jps->user_satu);
-						$tgls = explode('-',$jps->tanggal);
+						$asis = $this->models->where1Row('asisten','id_asisten',$jps['user_satu']);
+						$tgls = explode('-',$jps['tanggal']);
 						if(($tgls[0]==date('Y'))&&($tgls[1]==date('m'))&&($tgls[2]==date('d'))){
 							$waktu = 'Hari ini';	
 						}
@@ -69,14 +69,14 @@
 						}
 					?>    
                         <li>
-                            <a href="<?php echo base_url('index.php/admin_pesan/index/'.$_SESSION['id_asisten'].'/'.$jps->user_satu) ?>">
+                            <a href="<?php echo base_url('index.php/admin_pesan/index/'.$_SESSION['id_asisten'].'/'.$jps['user_satu']) ?>">
                                 <div>
-                                    <strong><?php echo $asis->nama ?> <span class="badge badge-danger"><?php echo $jps->jumlah ?></span></strong>
+                                    <strong><?php echo $asis->nama ?> <span class="badge badge-danger"><?php echo $jps['jumlah'] ?></span></strong>
                                     <span class="pull-right text-muted">
                                         <em><?php echo $waktu ?></em>
                                     </span>
                                 </div>
-                                <div><?php  echo substr($jps->pesan,0,30).'...'; ?></div>
+                                <div><?php  echo substr($jps['pesan'],0,30).'...'; ?></div>
                             </a>
                         </li>
                     <?php 
@@ -161,6 +161,13 @@
                             <li><?php echo anchor('admin_jabatan','<i class="fa fa-star fa-fw"></i> Jabatan') ?></li>
                             <li><?php echo anchor('admin_kategori/view','<i class="fa fa-bars fa-fw"></i> Kategori') ?></li>
                             <li><?php echo anchor('admin_shutdown/setting','<i class="glyphicon glyphicon-off"></i> Shutdown Server') ?></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-print fa-fw"></i> Kuisioner<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+   							<li><?php echo anchor('admin/kuisioner_mahasiswa','Kuisioner Mahasiswa') ?></li>
+   							<li><?php echo anchor('admin/kuisioner_asisten','Kuisioner Asisten') ?></li> 
                         </ul>
                     </li>
                 </ul>

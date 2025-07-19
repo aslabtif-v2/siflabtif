@@ -1,0 +1,2 @@
+<p>Saat ini, anda akan mengisi kuisioner tentang kinerja Asisten Laboratorium berdasarkan Praktikum yang anda ambil.
+    Untuk memulai mengisi silahkan pilih menu Kuisioner atau bisa klik tombol ini --> <a href="<?=base_url()?>index.php/mhs/kuisioner" class="btn btn-primary btn-sm">Click Me</a></p>
