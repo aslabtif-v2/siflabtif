@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+.btn,.form-control,.panel-default,.alert-danger{border-radius:0px 0px 0px 0px;}
+.img-loading{width:25px; height:25px;}
+.loading{display:none;}
+h3{font-family:'Agency FB';margin-top:0px;text-align:center;}
+p{font-size:12px; text-align:center}
+.img-login{width:115px; height:110px; float:left;}
+form{float:left; width:100%;margin-top:10px;}
+.menu-login{width:400px;margin:auto;}
+.alert-danger{width:400px;margin-top:-90px; text-align:center; font-size:13px; display:none; position:fixed;}

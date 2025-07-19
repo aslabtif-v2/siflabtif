@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+
+.headingg{
+	height:80px;
+	background:#06C;	
+}
+.headingg h1{
+	color:#FFF;
+	padding-top:20px;
+	margin-top:0px;
+	/*margin-left:250px;*/
+	margin-left:70px;
+	font-family:'Agency FB';
+}
+.btn{border-radius:0px 0px 0px 0px;}
+.badge{background:#FF4646;}
+.chatt{
+	text-align:center;
+	color:#FFF;
+	right:0px;
+	bottom:0px;
+	position:fixed;
+	background:#0CF;
+	width:320px;
+	height:30px;
+	cursor:pointer;
+	border-radius:10px 10px 0px 0px;	
+}
+.table thead th{text-align:center;}
+.table{margin-top:30px;}
+.input-small{width:200px; float:left;}
+.small{width:200px;}
+.page-header{text-align:center}
+.simpan{margin:40px 0px 0px 0px;}
+.kembali{margin:40px 0px 0px 10px;}
+.notif{bottom:0px; right:5px; width:300px; position:fixed;display:none;}
+.loading{height:20px; width:20px;}
+.halaman{ margin:auto;width:400px;}
+.hilang{
+	display:none;
+}
+.font-bold{
+	font-weight:bold;
+}
+.kiri{
+	float:left;
+}
+.atas{width:100%;float:left;margin-bottom:5px;}
+.atas-super-mini{
+	margin-top:5px;
+}
+.atas-mini{
+	margin-top:15px;
+}
+.bawah-mini{
+	margin-bottom:15px;
+}
+.kanan-mini{
+	margin-right:15px;
+}
+.btn-menu{
+	background-color:#00aaff;
+	border-radius:20px;
+	float:left;
+	padding:10px;
+	margin-left:15px;
+	margin-bottom:15px;
+	width:240px;
+	color:#fff;
+}
+.btn-menu:hover{
+	background-color:#00ccff;
+	text-decoration:none;
+	color:#fff;
+}
+.icon-btn-menu{
+	width:100px;
+	height:100px;
+	float:left;
+	margin-right:5px;
+}
+.btn-menu-text{
+	margin-top:10px;
+}
+.icon-mini{
+	width:20px;
+}
+.status, .status2{
+	cursor:pointer;
+}

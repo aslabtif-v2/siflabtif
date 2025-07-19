@@ -1,0 +1,93 @@
+name: siflabtif
+
+networks:
+
+  labtif.domain:
+    name: labtif.domain
+    driver: bridge
+
+services:
+
+  database.server:
+    image: mysql:5.5.60
+    container_name: db.labtif.mysql
+    networks:
+      - labtif.domain
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 3s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ~/docker/mysql:/var/lib/mysql
+    # ports:
+    #   - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: aslabtif#2425
+      MYSQL_DATABASE: praktikum
+
+  database.admin:
+    image: phpmyadmin:5.2.2
+    container_name: admin.labtif
+    networks:
+      - labtif.domain
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 3s
+      timeout: 5s
+      retries: 3
+    # ports:
+    #   - "8080:80"
+    environment:
+      PMA_HOST: db.labtif.mysql
+      UPLOAD_LIMIT: 512M
+      MAX_EXECUTION_TIME: 300
+    depends_on:
+      - database.server
+
+  application:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   tags:
+    #     - "siflabtif:v1.0"
+    image: siflabtif:v1.0
+    container_name: app.labtif.v1
+    networks:
+      - labtif.domain
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 3s
+      timeout: 5s
+      retries: 3
+    # ports:
+    #   - "8081:80"
+    environment:
+      DB_HOST: db.labtif.mysql
+      DB_USERNAME: root
+      DB_PASSWORD: aslabtif#2425
+      DB_DATABASE: praktikum
+    depends_on:
+      - database.server
+
+  proxy.server:
+    image: nginx:1.29.0-alpine3.22
+    container_name: proxy.labtif
+    networks:
+      - labtif.domain
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 3s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - database.admin
+      - application

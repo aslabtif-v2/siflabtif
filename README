@@ -1,0 +1,27 @@
+SIFLABTIF
+
+Sistem Informasi Laboratorium Teknik Informatika adalah sebuah aplikasi yang dirancang untuk 
+membantu pengelolaan administrasi dan operasional laboratorium di Program Studi Teknik Informatika. 
+Sistem ini mencakup fitur-fitur seperti manajemen jadwal laboratorium, pencatatan inventaris, dan 
+pengelolaan data pengguna.
+
+Tujuan utama dari SIFLABTIF adalah untuk meningkatkan efisiensi, transparansi, dan kemudahan akses 
+terhadap informasi laboratorium bagi asisten.
+
+Cara menjalankan aplikasi:
+
+    docker built -t siflabtif:v1.0 .
+    docker compose up -d
+
+Cara menghentikan aplikasi:
+
+    docker compose down
+    docker rmi siflabtif:v1.0
+
+Aplikasi dapat diakses pada alamat:
+
+    http://labtif.localhost
+
+Database dapat diakses pada alamat:
+
+    http://admin.labtif.localhost
