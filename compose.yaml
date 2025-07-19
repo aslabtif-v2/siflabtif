@@ -48,13 +48,8 @@ services:
       - database.server
 
   application:
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
-    #   tags:
-    #     - "siflabtif:v2.0"
-    image: siflabtif:v2.0
-    container_name: app.labtif.v2
+    image: aslabtif/siflabtif:latest
+    container_name: labtif.app
     networks:
       - labtif.domain
     restart: unless-stopped
@@ -80,7 +75,7 @@ services:
       - labtif.domain
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost"]
+      test: ["CMD", "curl", "-f", "-H", "Host: labtif.localhost", "http://localhost"]
       interval: 3s
       timeout: 5s
       retries: 3
