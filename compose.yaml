@@ -48,8 +48,10 @@ services:
       - database.server
 
   application:
-    image: aslabtif/siflabtif:latest
     container_name: labtif.app
+    build:
+      context: ./.
+      dockerfile: ./Dockerfile
     networks:
       - labtif.domain
     restart: unless-stopped
